@@ -11,6 +11,10 @@
   <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="https://v4-alpha.getbootstrap.com/examples/album/album.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="src/styles.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,8 +28,9 @@
     <div class="container">
       <h1 class="jumbotron-heading">${name}</h1>
       <p class="lead text-muted">${bio}</p>
+      <p class="lead text-muted"><i class="fa fa-compass" aria-hidden="true"></i>  ${location}</p>
       <p>
-        <a href="${githuburl}" class="btn btn-primary">See me on Github</a>
+        <a href="${githuburl}" class="btn btn-primary"><i class="fa fa-github" aria-hidden="true"></i>  See me on Github</a>
         <a href="#" class="btn btn-secondary">Secondary action</a>
       </p>
     </div>
@@ -39,14 +44,11 @@
       <div class="row">
         <#list reposList as repo>
           <div class="card">
-            <h3>${repo.name}</h3>
+            <p class="language"><#if repo.language?has_content><i class="fa fa-code" aria-hidden="true"></i>  ${repo.language}<#else></#if></p>
+            <a href="${repo.html_url}"><h3>${repo.name}</h3></a>
             <p class="card-text"><#if repo.description?has_content>${repo.description}<#else>(no description provided)</#if></p>
           </div>
        </#list>
-        <div class="card">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="Card image cap">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
       </div>
     </div>
   </div>
