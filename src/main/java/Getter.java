@@ -1,5 +1,9 @@
 import org.apache.commons.io.IOUtils;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
@@ -11,8 +15,24 @@ import java.net.URL;
 
 public class Getter {
     public static String get(String urlString) throws Exception {
-        URL url = new URL(urlString);
-        return IOUtils.toString(url.openStream(), "UTF-8");
+        StringBuilder sb = new StringBuilder();
+        try {
+            URL url = new URL (urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(true);
+            connection.setRequestProperty  ("Authorization", "Basic " + Config.key);
+            InputStream content = connection.getInputStream();
+            BufferedReader in = new BufferedReader (new InputStreamReader(content));
+            String line;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+                sb.append(line);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
     }
 
 }
