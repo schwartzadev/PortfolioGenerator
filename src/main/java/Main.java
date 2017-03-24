@@ -4,10 +4,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by andrew on 3/20/17.
@@ -31,9 +28,12 @@ public class Main {
         try {
             //Load template from source folder
             Template template = cfg.getTemplate("src/main.ftl");
-
             // Build the data-model
+
             Map<String, Object> data = new HashMap<String, Object>();
+            /* **** TEMP **** */
+            List<Repo.Download> reposList = Arrays.asList(repos);
+            data.put("reposList", reposList);
             data.put("handle", "@" + user.login);
             data.put("name", user.name);
             data.put("githuburl", user.html_url);
