@@ -2,8 +2,15 @@
  * Created by andrew on 3/23/17.
  */
 public class Repo {
-    class Download {
-        int id;
+    public class Download {
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
         String name;
         String html_url;
         String description;
@@ -20,7 +27,6 @@ public class Repo {
         @Override
         public String toString() {
             return  "\nName: " + this.name +
-                    "\nID: " + this.id +
                     "\nDescription: " + this.description +
                     "\nUpdated At: " + this.updated_at +
                     "\n# of Stargazers: " + this.stargazers_count +
