@@ -1,7 +1,6 @@
 import com.google.gson.Gson;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 import java.io.*;
 import java.util.*;
@@ -11,7 +10,7 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) throws Exception{
-        String userName = "afollestad";
+        String userName = "torvalds";
         String userInput = Getter.get("https://api.github.com/users/" + userName);
 
         Gson gson = new Gson();
@@ -31,13 +30,13 @@ public class Main {
             // Build the data-model
 
             Map<String, Object> data = new HashMap<String, Object>();
-            /* **** TEMP **** */
             List<Repo.Download> reposList = Arrays.asList(repos);
             data.put("reposList", reposList);
             data.put("handle", "@" + user.login);
             data.put("name", user.name);
             data.put("githuburl", user.html_url);
             data.put("bio", user.bio);
+            data.put("location", user.location);
 
             // File output
             Writer file = new FileWriter(new File("test.html"));
@@ -45,9 +44,7 @@ public class Main {
             file.flush();
             file.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TemplateException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
