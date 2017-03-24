@@ -1,14 +1,19 @@
 .language {
-    width: 70px;
+    margin-right: .5em;
+    margin-top: .5em;
     position: absolute;
     top: 0px;
     right: 0px;
 }
 
-.card {
-	margin-right: 0;
+.card-title {
+	margin-top: 1.25em;
 }
 
-.container {
-	
+.forks-count {
+    margin-right: .5em;
+    margin-top: .5em;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
