@@ -5,9 +5,19 @@ public class User {
 
     class Download {
         String login;
+
+        public int getId() {
+            return id;
+        }
+
         int id;
         String avatar_url;
         String html_url;
+
+        public String getName() {
+            return name;
+        }
+
         String name;
         String location;
         String email;
