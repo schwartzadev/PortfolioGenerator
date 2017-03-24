@@ -44,6 +44,15 @@ public class Repo {
         }
 
         String language;
+
+        public int getForks_count() {
+            return forks_count;
+        }
+
+        public void setForks_count(int forks_count) {
+            this.forks_count = forks_count;
+        }
+
         int forks_count;
 
 
