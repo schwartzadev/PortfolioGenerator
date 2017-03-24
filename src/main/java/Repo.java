@@ -13,6 +13,15 @@ public class Repo {
 
         String name;
         String html_url;
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
         String description;
         String updated_at;
         int stargazers_count;
