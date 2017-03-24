@@ -12,6 +12,15 @@ public class Repo {
         }
 
         String name;
+
+        public String getHtml_url() {
+            return html_url;
+        }
+
+        public void setHtml_url(String html_url) {
+            this.html_url = html_url;
+        }
+
         String html_url;
 
         public String getDescription() {
@@ -25,6 +34,15 @@ public class Repo {
         String description;
         String updated_at;
         int stargazers_count;
+
+        public String getLanguage() {
+            return language;
+        }
+
+        public void setLanguage(String language) {
+            this.language = language;
+        }
+
         String language;
         int forks_count;
 
@@ -41,7 +59,7 @@ public class Repo {
                     "\n# of Stargazers: " + this.stargazers_count +
                     "\nLanguage: " + this.language +
                     "\n# of Forks: " + this.forks_count +
-                    "\nGravatar URL: " + this.html_url+"\n";
+                    "\nURL: " + this.html_url+"\n";
         }
     }
 }
